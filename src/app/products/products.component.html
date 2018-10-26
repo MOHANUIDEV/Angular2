@@ -1,0 +1,65 @@
+<p>
+    forms works!
+</p>
+<form #userform='ngForm' (ngSubmit)='savedata(userform.value)'>
+    <div class='form-group'>
+        <label>First Name:</label>
+        <input type='text' class='form-control ' name='fname' ngModel>
+        
+    </div>
+    <div class='form-group'>
+        <label>Last Name:</label>
+        
+        <input type='text' class='form-control' name='lname' ngModel>
+    
+    </div>
+    <div class='form-group'>
+        <label>Father Name:</label>
+        <input type='text' class='form-control' name='frname' ngModel>
+    </div>
+    <div class='form-group'>
+        <label>Mother Name:</label>
+        <input type='text' class='form-control' name='fname' ngModel>
+    </div>
+    <div class='form-group'>
+        <label>Couentry:</label>
+        <select class='form-control' name='country' ngModel>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="PAK">PAK</option>
+      </select>
+    </div>
+    <button type='submit' class='btn btn-primary'>savedata</button>
+</form>
+
+<h1>Login works</h1>
+<form class="form-horizontal" #login="ngForm" novalidate>
+    <div class="form-group" [class.has-error]="email.invalid && email.dirty">
+        <label for="email" class="control-label col-xs-2">Email</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" name="email" ng-pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                [(ngModel)]="user.email" #email="ngModel" placeholder="Email" minlength="8" maxlength="15" required>
+            <div *ngIf="email.invalid && email.dirty" style="color:red">Email is required..!</div>
+        </div>
+    </div>
+    <div class="form-group" [class.has-error]="password.invalid && password.dirty">
+        <label for="password" class="control-label col-xs-2">Password</label>
+        <div class="col-xs-3">
+            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel" placeholder="Password"
+                minlength="8" maxlength="15" required>
+            <div *ngIf="password.invalid && password.dirty" style="color:red">Password is required..!</div>
+        </div>
+    </div>
+    <div class="form-group" [class.has-error]="number.invalid && number.dirty">
+        <label for="number" class="control-label col-xs-2">mobile number</label>
+        <div class="col-xs-3">
+            <input type="text" class="form-control" name="number" ng-pattern="[0-9]*" [(ngModel)]="user.number" #number="ngModel" placeholder="1234567890"
+                minlength="10" maxlength="10" required>
+            <div *ngIf="number.invalid && number.dirty" style="color:red">phone number is required..!</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+
